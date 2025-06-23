@@ -17,7 +17,10 @@ app.use(session({
     }
 }));
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:4200', // o tu dominio de frontend exacto
+  credentials: true // 🔥 Esto permite que se envíen cookies
+}));
 app.use(express.json());
 
 app.use('/api/v1/captcha', devRoutes);
